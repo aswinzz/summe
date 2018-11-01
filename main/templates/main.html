@@ -52,10 +52,10 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">
-                 Summe will summarise your pdf in a wink! <i class="far fa-smile-wink"></i>
+                 Welcome to Summe
                 </h1>
                 <h2 class="subtitle">
-                  pass in any pdf file and we will summarize it into its one fourth size!
+                  Summe will summarise your pdf in a wink! <i class="far fa-smile-wink"></i>
                 </h2>
             </div>
         </div>
@@ -63,7 +63,7 @@
         <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
           <div class="field">
-            <div class="file is-centered is-boxed is-success has-name">
+            <div class="file is-centered is-boxed is-light has-name">
               <label class="file-label">
               {% render_field form.pdfFile class="file-input" id="pdfFile" name="pdfFile" %}
               <span class="file-cta">
@@ -81,7 +81,7 @@
               </div>
           </div>
           <center>
-              <button class="button submit-button is-medium is-success" type="submit">Summarise</button>
+              <button class="button submit-button is-medium is-light" type="submit">Summarise</button>
           </center>
         </form>
     </section>
