@@ -31,7 +31,10 @@ def extract_text_from_pdf(pdf_path):
     #Summarize the document with 2 sentences
     parser=PlaintextParser(text,Tokenizer("english"))
     count=len(text.split("."))
-    summary = summarizer(parser.document, count/4)
+    length=10
+    while(length>count):
+        length=count/2
+    summary = summarizer(parser.document, length)
     for sentence in summary:
         print(sentence)
     # if text:

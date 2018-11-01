@@ -6,17 +6,23 @@
     PDF-Extractor
   </title>
   <link rel="stylesheet" type="text/css" href="{% static '/css/bulma.css' %}">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 </head>
 
 <body>
   <section class="section">
+    <a href="/"><i style="color:blue;" class="fas fa-home fa-lg"></i></a>
     <div class="container">
       <h1 class="title">Summary</h1>
       <h2 class="subtitle">
-       {% for item in summary %}
-        {{ item }}<br>
-       {% endfor %}
+
+        {% ifequal type 'doc' %}
+          {{summary}}
+        {% else %}
+          {% for item in summary %}
+           {{ item }}<br>
+          {% endfor %}
+        {% endifequal %}
       </h2>
     </div>
   </section>
