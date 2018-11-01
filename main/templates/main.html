@@ -6,35 +6,92 @@
     PDF-Extractor
   </title>
   <link rel="stylesheet" type="text/css" href="{% static '/css/bulma.css' %}">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <div class="container">
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-      <div class="field">
-        <div class="file is-centered is-boxed is-success has-name">
-          <label class="file-label">
-          {% render_field form.pdfFile class="file-input" id="pdfFile" name="pdfFile" %}
-          <span class="file-cta">
-          <span class="file-icon">
-          <i class="fas fa-upload"></i>
-          </span>
-          <span class="file-label">
-          Upload Video File
-          </span>
-          </span>
-          <span class="file-name" id="filename1">
-          No file uploaded
-          </span>
-          </label>
+    <section style="height:100%;" class="hero is-info is-medium is-bold">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="../">
+                            <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+                        </a>
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <div class="tabs is-right">
+                                <!-- <ul>
+                                    <li class="is-active"><a>Home</a></li>
+                                    <li><a href="">Examples</a></li>
+                                    <li><a href="">Features</a></li>
+                                    <li><a href="">Team</a></li>
+                                    <li><a href="">Help</a></li>
+                                </ul> -->
+                                <span class="navbar-item">
+                                    <a class="button is-white is-outlined" href="https://github.com/aswinzz/PDF-Summarizer">
+                                        <span class="icon">
+                                            <i class="fa fa-github"></i>
+                                        </span>
+                                        <span title="Hello from the other side">View Source</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                 Summarize any pdf easily!
+                </h1>
+                <h2 class="subtitle">
+                  pass in any pdf file and we will summarize it into its one fourth size!
+                </h2>
+            </div>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="field">
+            <div class="file is-centered is-boxed is-success has-name">
+              <label class="file-label">
+              {% render_field form.pdfFile class="file-input" id="pdfFile" name="pdfFile" %}
+              <span class="file-cta">
+              <span class="file-icon">
+              <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+              Upload Video File
+              </span>
+              </span>
+              <span class="file-name" id="filename">
+              No file uploaded
+              </span>
+              </label>
+              </div>
           </div>
-      </div>
-      <center>
-          <button class="button submit-button is-medium is-success" type="submit">Submit</button>
-      </center>
-    </form>
-  </div>
+          <center>
+              <button class="button submit-button is-medium is-success" type="submit">Submit</button>
+          </center>
+        </form>
+    </section>
+    <script>
+    var file = document.getElementById("pdfFile");
+    file.onchange = function(){
+        if(file.files.length > 0)
+        {
+          document.getElementById('filename').innerHTML = file.files[0].name;
+        }
+    };
+    </script>
 </body>
 </html>
