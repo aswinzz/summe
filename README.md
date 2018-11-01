@@ -1,5 +1,5 @@
-# TWEEZY
-<img src="logo.png" width = "700" height= "200">
+# SUMME
+<img style="float: right;" src="logo.png" width = "200" height= "100">
 <br>
 
 Summarises any pdf containing texts
